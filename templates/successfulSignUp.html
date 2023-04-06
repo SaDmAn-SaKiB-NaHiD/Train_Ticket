@@ -1,0 +1,18 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class='w-100'>
+        {% for message in messages %}
+        <h1 class='text-success'>{{message}} </h1>
+        {% endfor %}
+    </div>
+    <div class='w-100 text-success'>
+        <br>
+        <h1 class=>Thank you for signinig up <i class="bi bi-check-circle"></i></h1>
+    </div>
+    {% if not user.is_authenticated %}
+    <h2 class='text-success'><a href="{% url 'signIn' %}" style='text-decoration:none'>Click here </a><span>to go to sign in page</span></h2>
+    {% endif %}
+</div>
+{% endblock %}

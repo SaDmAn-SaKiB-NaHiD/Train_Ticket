@@ -1,0 +1,51 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<section class="mt-5">
+    <div class="container pt-2">
+        <h2>Your Profile:</h2>
+        <div class="text-dark pt-3 border px-4">
+            <p class="fw-bold">Username: {{request.user.username}}</p>
+            <p class="fw-bold">First Name: {{request.user.first_name}}</p> 
+            <p class="fw-bold">Last Name: {{request.user.last_name}}</p> 
+            <p class="fw-bold">Email: {{request.user.email}}</p>
+            
+
+        </div>
+        <hr>
+        <div class='row'>
+            <h2>Your Booked Tickets:</h2>
+            {% for train in trains %}
+      <div class="col-12 my-1">
+        <div class="card bg-light text-dark h-100">
+          <div class="card-body">
+            <div class='d-flex justify-content-between'>
+              <div class="text-center">
+                <a href="" class="text-decoration-none"><span class="h3 text-dark align-middle">{{train.train_name}}</span></a>
+              </div>
+              <div class="row">
+              <div class="col-4 ">
+                <p>FROM: {{train.start_dest}} </p>
+                <p>TO: {{train.end_dest}}</p>
+              </div>
+              <div class="col-4 ">
+                <p>Date: {{train.available_date}} </p>
+              </div>
+              
+              <div class="col-4 pt-3">
+                <h3 class="text-success">BOUGHT</h3>
+                <p class="px-2 fw-bold">{{train.price}} BDT</p>
+              </div>
+            </div>
+
+            </div>
+            <!-- <a href="#" style='text-decoration:none'><span class="h3 card-title mb-3 text-dark">{{train.train_name}}</span></a> -->
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>  
+    </div>
+</div>
+</section>
+{% endblock %}

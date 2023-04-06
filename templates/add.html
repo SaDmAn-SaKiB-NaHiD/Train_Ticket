@@ -1,0 +1,92 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<section class='mt-5 h-100 '>
+    <div class="container pt-5">
+        <a href="{% url 'tickets'  %}" class=""><button class="btn btn-lg btn-info px-5">Back</button></a>
+
+    </div>
+    <div class="container pt-5">
+        <section class="bg-primary text-light p-4">
+            <div class='container'>
+                <div class="w-75 mx-auto">
+                <div class = 'row'>
+                    <div class='col-2 my-auto' >
+                        
+                    </div>
+                    <div class="col-10 mb-3">
+                        <h1>Add train details</h1>
+                        <hr class=''>
+                        <form method="POST" action = "{% url 'added' %}">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-6 pt-3">
+                                
+                                    
+                                    
+                                    <h2>FROM</h2>
+                                        <select class="form-select " aria-label="Default select example" name="from">
+                                            
+                                            <option selected>Select</option>
+                                            <option value="1">Dhaka</option>
+                                            <option value="2">Sylhet</option>
+                                            <option value="3">Madaripur</option>
+                                        </select>
+                                </div>
+                                <div class="col-6 pt-3">
+                                    <h2>TO</h2>
+                                    <select class="form-select " aria-label="Default select example" name="to">
+                                            
+                                        <option selected>Select</option>
+                                        <option value="1">Dhaka</option>
+                                        <option value="2">Sylhet</option>
+                                        <option value="3">Madaripur</option>
+                                    </select>
+                                    
+    
+                                </div>
+                                <div class="pt-3 mb-2 col-6">
+                                    <label for="formGroupExampleInput" class="form-label h2">Train ID</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="ID" name="id">
+                                  </div>
+                                  <div class="pt-3 mb-2 col-6">
+                                    <label for="formGroupExampleInput2" class="form-label h2">Train Name</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Train Name" name="name">
+                                  </div>
+                                  <div class="pt-3 mb-2 col-4">
+                                    <label for="formGroupExampleInput" class="form-label h2">Seat Status</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Available/Unavailable" name="seat">
+                                  </div>
+                                  <div class="pt-3 mb-2 col-4">
+                                    <label for="formGroupExampleInput2" class="form-label h2">Available Date</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="2021-12-28 16:39:04" name="date">
+                                  </div>
+                                  <div class="pt-3 mb-2 col-4">
+                                    <label for="formGroupExampleInput2" class="form-label h2">Price</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Price" name="price">
+                                  </div>
+                                </div>
+                                
+
+                                </div>
+
+                                <div class="">
+                                    
+                                        <div class="mt-4 mx-auto w-25 ">
+                                        <button type="submit" class="btn btn-dark w-100">Add</button>
+                                        </div>
+                                    
+    
+                                    </div>
+                                
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+                </div>
+            
+            </div>
+        </section>
+</div>
+</section>
+{% endblock %}

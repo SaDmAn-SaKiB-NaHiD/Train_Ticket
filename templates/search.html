@@ -1,0 +1,103 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<section class="mt-5">
+
+  <div class="container pt-5">
+    <div class="row mt-5">
+      {% for train in trains %}
+      <!-- <h1>{{from_dest}}</h1> -->
+      <div class="col-12 my-1">
+        <div class="card bg-light text-dark h-100">
+          <div class="card-body">
+            <div class='d-flex justify-content-between'>
+              <div class="text-center">
+                <a href="" class="text-decoration-none"><span class="h3 text-dark align-middle">{{train.train_name}}</span></a>
+              </div>
+              <div class="row">
+              <div class="col-4 ">
+                <p>FROM: {{train.start_dest}} </p>
+                <p>TO: {{train.end_dest}}</p>
+              </div>
+              <div class="col-4 ">
+                <p>Date: {{train.available_date}} </p>
+              </div>
+              <div class="col-4 pt-3">
+                <button class="btn btn-lg btn-primary w-75">Buy</button>
+                <p class="px-2 fw-bold">{{train.price}} BDT</p>
+              </div>
+            </div>
+
+            </div>
+            <!-- <a href="#" style='text-decoration:none'><span class="h3 card-title mb-3 text-dark">{{train.train_name}}</span></a> -->
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>  
+  </div>>
+
+</section>
+<!-- <section class="bg-primary text-light p-4 mt-4">
+    <div class='container'>
+        <div class = 'row'>
+            <div class='col-2'>
+                
+                    <h3 class='mb-3 mb-md-0 pe-5'>Search for Courses</h3>
+                
+            </div>
+            <div class="col-10 mb-3">
+                <div class="row">
+                <form action="" method="GET" action = "{% url 'search' %}">
+                        <div class="col-auto">
+
+                          <input type="text" class="form-control" id="inputPassword2" placeholder="Search here" name='searched'>
+                        </div>
+                        <div class="col-auto">
+                          <button type="submit" class="btn btn-dark my-3 float-end w-25">Search</button>
+                        </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="mt-5" id='section2'>
+        
+    <div class="container ">
+      <h3 class='mb-4'>You have searched for "{{searched}}" :</h3>
+        <div class="row text-center gy-4">
+            <h3 class="text-center">{{no_result}}</h3>
+          {% for course in courses %}
+            <div class="col-lg-4">
+                <div class="card bg-light text-light h-100">
+                    <div class="card-body text-center">
+                  
+                      <a href="#" style='text-decoration:none'><h3 class="card-title mb-3 text-dark">{{course.name}}</h3></a>
+                      <div>
+                        {% if course.discount %}
+                        <div class='text-center position-absolute w-25 rounded py-0 bg-info mt-2'>
+                          <h3 id='discount' class='h4'>{{course.discount_percentage}}% off!</h3>
+                        </div>
+                        {% endif %}
+                        <img src="{{course.image.url}}" alt='Image of django course' class='w-100 rounded img-fluid img-thumbnail'>
+                      </div>
+                      <p class='card-text text-muted mt-2'>{{course.description}}</p>
+                      
+                      
+                    </div>
+                    {% if course.discount %}
+                      <div class='text-dark fw-bold m-2'><P><del>{{course.price}} BDT</del><br><span class=>{{course.new_price}} BDT</span></P></div>
+                    {% else %}
+                      <div class='text-dark fw-bold m-2'>{{course.price}} BDT</div>
+                      {% endif %}
+                    <div><a href='#'><button class='btn btn-primary mb-3'>Enroll Now</button></a></div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+</section> -->
+
+{% endblock %}

@@ -1,0 +1,307 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+    <section class="bg-dark text-light text-center text-md-start py-2 mt-5 pb-4" id='section1'>
+        <div class="container">
+            <div class='d-sm-flex pt-4 align-items-center justify-content-between'>
+                <div>
+                    <p class='h1'>BOOK CHEAPEST <span class='text-warning'>TICKETS</span></p>
+                    {% if user.is_authenticated %}
+                    <div><p class='fs-4'>Welcome,<br><span class= 'fw-bold h1'>{{user.first_name}} {{user.last_name}}</span></p></div>
+                    {% else %}
+                    <p class='fs-4'>Register to confirm tickets!</p>
+                    <a href="{% url 'SignUp' %}"><button class="btn btn-primary btn-lg px-5 mb-5 mb-lg-3 " >Register!</button></a>
+                    {% endif %}
+                </div>
+                <div>
+                    <img src="{% static 'images/train.jpg' %}" class='img-fluid w-100 h-25 mx-5 pb-3 rounded-pill d-none d-md-block' alt="HTML1">
+                </div>  
+                
+            </div>
+        </div>
+    </section>
+<!--Search Options/Booking options -->
+    <section class="bg-primary text-light p-4">
+        <div class='container'>
+            <div class = 'row'>
+                <div class='col-2 my-auto' >
+                    
+                        <h3 class='mb-3 mb-md-0 pe-5'>Search for train ticket</h3>
+                    
+                </div>
+                <div class="col-10 mb-3">
+                    <form method="GET" action = "{% url 'search' %}">
+                        <div class="row">
+                            <div class="col-6 pt-3">
+                            
+                                
+                                
+                                <h2>FROM</h2>
+                                    <select class="form-select " aria-label="Default select example" name="from">
+                                        
+                                        <option selected>Select</option>
+                                        <option value="1">Dhaka</option>
+                                        <option value="2">Sylhet</option>
+                                        <option value="3">Madaripur</option>
+                                    </select>
+                            </div>
+                            <div class="col-6 pt-3">
+                                <h2>TO</h2>
+                                <select class="form-select " aria-label="Default select example" name="to">
+                                        
+                                    <option selected>Select</option>
+                                    <option value="1">Dhaka</option>
+                                    <option value="2">Sylhet</option>
+                                    <option value="3">Madaripur</option>
+                                </select>
+                                
+
+                            </div>
+                            <div class="col-6 pt-3">
+                                <h2>Passenger</h2>
+                                <select class="form-select " aria-label="Default select example" name="passenger">
+                                        
+                                    <option selected>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                
+
+                            </div>
+                            <div class="col-6 pt-3">
+                                <h2>Class</h2>
+                                <select class="form-select " aria-label="Default select example" name="class">
+                                        
+                                    <option selected>Select</option>
+                                    <option value="1">First</option>
+                                    <option value="2">Second</option>
+                                    <option value="3">Third</option>
+                                </select>
+                                
+
+                            </div>
+                            <div class="col ">
+                                
+                                    <div class="mt-4 mx-auto w-25">
+                                    <button type="submit" class="btn btn-dark w-100">Search</button>
+                                    </div>
+                                
+
+                            </div>
+                                    <!-- <div class="col-6">
+
+                                    <input type="text" class="form-control mx-2" id="inputPassword2" placeholder="Search here" name='searched'>
+                                    </div>
+                                    <div class="col-auto">
+                                    <button type="submit" class="btn btn-dark my-3 float-end w-25">Search</button>
+                                    </div> -->
+                            
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        
+        </div>
+    </section>
+<!-- Courses(Products) -->
+    
+
+<!-- <hr class='mt-5'>
+
+    <section>
+        <div class="container">
+            <div class="row align-item-center justify-content-between p-5">
+                <div class="col-md">
+                    
+                    <img src="{%static 'images/CSS3.png' %}" class = 'w-100 rounded-pill'>
+                </div>
+                <div class="col-md px-5 py-lg-0 py-3">
+                    <h2>Fundamentals of Cascading Style Sheets</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quas labore nisi, quibusdam autem voluptate adipisci similique impedit vero laboriosam ipsa provident pariatur quos magnam. Tempore officiis repellendus amet accusamus!</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum animi eligendi dolore itaque adipisci aliquid quod tenetur consequuntur provident ipsam!</p>
+                    <a href='#' class='btn btn-ligth'>
+                        <i class="bi bi-chevron-right"></i>Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class='bg-dark p-0 text-light'>
+        <div class="container">
+            <div class="row align-item-center justify-content-between p-5">
+                <div class="col-md px-5 py-lg-0 py-3">
+                    <h2>Fundamentals of Java Script</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quas labore nisi, quibusdam autem voluptate adipisci similique impedit vero laboriosam ipsa provident pariatur quos magnam. Tempore officiis repellendus amet accusamus!</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum animi eligendi dolore itaque adipisci aliquid quod tenetur consequuntur provident ipsam!</p>
+                    <a href='#' class='btn btn-dark'>
+                        <i class="bi bi-chevron-right"></i>Read More
+                    </a>
+                </div>
+                <div class="col-md">
+                    
+                    <img src="{%static 'images/JavaScript.png'%}" class = 'w-100 rounded-pill'>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+<!--Question Accordian-->
+    <section class='p-5' id='question'>
+        <div class="container pb-5">
+            <h2 class="text-center mb-4">Frequently asked questions</h2>
+            <div class="accordion" id="questions">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Where can I find the copy of ticket if I book online?
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#questions">
+                    <div class="accordion-body">
+                      <p>A soft copy of your ticket will be sent to your email after you are done with payment.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Do I need to print hard-copy of my ticket while boarding on the train?
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p>You will only need to show soft-copy of the ticket to board on the train.<p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      What is the payment procedure?
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>You may use bkash or bank cards for payment.<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>
+    <!-- Instructors Part -->
+    <!-- <section id="instructor" class='p-5 bg-primary'>
+        <div class="container">
+            <h2 class="text-center text-light">Our instructors<hr></h2>
+            <p class="lead text-cente text-white mb">
+                Our instructors all are well experienced and richest people in the world.
+            </p>
+            <div class="row g-4">
+                <div class="col-md-12 col-lg-4 align-items-stretch">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center ">
+                            <h2 class="text-center">Bill Gates</h2>
+                            <img src="{% static 'images/billgates.jpg ' %}" alt='' class='rounded mb-3 w-100'/>
+                            <h5 class="card-title">Microsoft-Owner</h5>
+                            <p class="card-text">Parents named him gates but constantly stealing money from people by selling windows</p>
+                            <a href="">
+                                <i class="bi bi-facebook text-dark mx-1"></i>
+                            </a>
+                            <a href="">
+                                <i class="bi bi-instagram text-dark mx-1"></i>
+                            </a>
+                            <a href="">
+                                <i class="bi bi-twitter text-dark mx-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4 align-items-stretch">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center">
+                            <h2 class="text-center">Jeff Bezos</h2>
+                            <img src="{% static 'images/jeff.png' %}" alt='' class=' rounded mb-3 w-100'>
+                            <h5 class="card-title">
+                                Former Owner of Amazon and hair.
+                            </h5>
+                            <p class="text-center">Guy believes money can't buy happiness,so, he never bought hair like elon musk</p>
+                            <a href="">
+                                <i class="bi bi-facebook text-dark mx-1"></i>
+                            </a>
+                            <a href="">
+                                <i class="bi bi-instagram text-dark mx-1"></i>
+                            </a>
+                            <a href="">
+                                <i class="bi bi-twitter text-dark mx-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4 align-items-stretch">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center h-100">
+                            <h2 class="text-center">Jeff Bezos</h2>
+                            <img src="{% static 'images/jeff.png' %}" alt='' class=' rounded mb-3 w-100'>
+                            <h5 class="card-title">
+                                Former Owner of Amazon and hair.
+                            </h5>
+                            <p class="text-center">Guy believes money can't buy happiness,so, he never bought hair</p>
+                            <a href="">
+                                <i class="bi bi-facebook text-dark mx-1"></i>
+                            </a>
+                            <a href="">
+                                <i class="bi bi-instagram text-dark mx-1"></i>
+                            </a>
+                            <a href="">
+                                <i class="bi bi-twitter text-dark mx-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contacts  -->
+
+    <section class="p-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md">
+                    <h2 class="text-center mb-4">
+                        Contact Information
+                    </h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="fw-bold">Main Locations:</span><span>111 beckar street</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Student Email:</span><span>jeff.gates@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <p>This is the google map</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white text-center">
+        <div class="container">
+            <p class="lead">Copyrigth &copy; 2021</p>
+            <a href="" class="position-absolute bottom-0 end-0 p">
+                <i class="bi bi-arrow-up-circle h1"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Modal Form -->
+    <!-- Modal -->
+
+<!-- Modal : Sign in part -->
+{% endblock %}
